@@ -1,0 +1,735 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<style>
+body {
+background-color: #ddd;
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+}
+.header {
+overflow: hidden;
+background-color: #22ab42;
+padding: 20px;
+margin-bottom: 30px;
+}
+.amaki {
+text-align:center;
+bottom: 0%;
+width: 100%;
+}
+.header a {
+float: left;
+color: black;
+text-align: center;
+padding: 16px;
+text-decoration: none;
+font-size: 18px;
+line-height: 25px;
+border-radius: 4px;
+}
+.header a:hover {
+background-color: #71ad7f;
+color: black;
+}
+.header a.active {
+background-color: #71ad7f;
+color: white;
+}
+th, td {
+border:1px solid black;
+width:200px;
+height:50px;
+padding:5px;
+}
+.center {
+margin-left: auto;
+margin-right: auto;
+}
+input {
+font-size:16px;
+border:none;
+background-color: #ddd;
+color: blue;
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+  <div style="float:left;">
+    <a href="#home">Bosh sahifa</a>
+    <a href="#config">Sozlamalar</a>
+    <a href="#table">Jadval</a>
+  </div>
+  <div style="float:right;">
+    <a href="#logout" onclick="self.Close()">Chiqish</a>
+  </div>
+</div>
+<form method="post">
+  <h3 style="width:100%;text-align:center;color:#22ab42;">Координаталар жадвали</h3>
+
+  <!--<h4 style="width:100%;text-align:center;">Q - (м<sup>3</sup>/с ёки л/с), H - (м ёки см)</h4>-->
+  <table class="center">
+    <style>
+        td {
+        border:1px solid black;
+        height: 15px;
+        width:30px;
+        text-align:center;
+        }
+        input {
+        height: 15px;
+        width: 25px;
+        }
+    </style>
+    <tr>
+      <td>H</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td><input name="t0" type="text" value="0"/></td>
+      <td><input name="t1" type="text" value="0"/></td>
+      <td><input name="t2" type="text" value="0"/></td>
+      <td><input name="t3" type="text" value="0"/></td>
+      <td><input name="t4" type="text" value="0"/></td>
+      <td><input name="t5" type="text" value="0"/></td>
+      <td><input name="t6" type="text" value="27"/></td>
+      <td><input name="t7" type="text" value="36"/></td>
+      <td><input name="t8" type="text" value="45"/></td>
+      <td><input name="t9" type="text" value="56"/></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><input name="t10" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t12" type="text" value="0"/></td>
+      <td><input name="t13" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t14" type="text" value="0"/></td>
+      <td><input name="t15" type="text" value="0"/></td>
+      <td><input name="t16" type="text" value="0"/></td>
+      <td><input name="t17" type="text" value="0"/></td>
+      <td><input name="t18" type="text" value="0"/></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>40</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>50</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>60</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>70</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>80</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>90</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>100</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>110</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>120</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>130</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>140</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>150</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>160</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>170</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>180</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>190</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>200</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>210</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>220</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>230</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>240</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>250</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>260</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>270</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>280</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>290</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>300</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>310</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>320</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>330</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>340</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>350</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>360</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    </tr>
+      <td>370</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    <tr>
+      <td>380</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    <tr>
+      <td>390</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>410</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>420</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>430</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>440</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>450</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>460</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>470</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>480</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+      <td>490</td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+      <td><input name="t11" type="text" value="0"/></td>
+    </tr>
+  </table>
+<div class="amaki"><p>
+<button name="SAVE" type="submit">Saqlash</button>
+<button name="RESET" type="submit">Qayta yuklash</button>
+</div>
+</form>
+<div class="amaki">
+<p style="bottom:5px;text-align:center;width:100%">Copyright by a.k.a</p>
+</div></body></html>
