@@ -1,7 +1,7 @@
 #include <WebServer.h>
 #include "WebConfig.h"
-#include <SoftwareSerial.h>
-#include <DHT.h>
+#include "SoftwareSerial.h"
+#include "DHT.h"
 
 #define DHTPIN      27
 #define DHTTYPE     DHT11
