@@ -94,7 +94,7 @@ const char HTML_START[] PROGMEM =
 "<div class='header-left'>"
 "<a href='/'>Bosh sahifa</a>"
 "<a href='/config'>Sozlamalar</a>"
-"<a href='/table'>Jadval</a>"
+"<a href='/table1'>Jadval</a>"
 "</div>"
 "<div style='float:right;'>"
 "<a href='#logout' onclick='self.Close()'>Chiqish</a>"
@@ -133,6 +133,11 @@ const char TABLE_STAT_HTML[] PROGMEM =
 const char HTML_INPUT_END[] PROGMEM =
 "</table>"
 "<div class='amaki'><p>"
+"<a href='/table1'>1</a>"
+"<a href='/table2'>2</a>"
+"<a href='/table3'>3</a>"
+"<a href='/table4'>4</a>"
+"<a href='/table5'>5</a><p>"
 "<button name='SAVE' type='submit'>Saqlash</button>"
 "<button name='RESET' type='submit'>Qayta yuklash</button>"
 "</div>"
@@ -260,12 +265,15 @@ void createHeader(char * buf, String value) {
   }
   void WebConfig::handleFormRequest(ESP8266WebServer * server, const char * filename, int uri){
 #endif
-  for (uint8_t i = 0; i < server->args(); i++) {
-    if (server->args() < MAXVALUES) {
+  uint16_t count_args = server->args();
+  int page = ((uri-3) * TABLEROW * TABLECOLUMN);
+  for (uint16_t i = 0; i < count_args; i++) {
+    if (count_args < MAXVALUES) {
       if (server->hasArg(_description[i].name)) values[i] = server->arg(_description[i].name);
     }
     else {
-      if (server->hasArg("t" + String(i)) && i < MAXVALUESTABLE) table_values[i] = server->arg("t"+String(i)).toInt();
+      table_values[page+i] = server->arg("t"+String(page + i)).toInt();
+      Serial.printf("Table arg: %d - %s\n", page+i, table_values[page+i]);
     }
   }
   if (server->hasArg(F("SAVE")) || server->hasArg(F("RESET"))) {
@@ -324,14 +332,14 @@ void createHeader(char * buf, String value) {
         server->sendContent(_buf);
       }
       server->sendContent(HTML_INPUT_END);
-    } else if (uri == 3) {
+    } else if (uri >= 3) {
       sprintf(_buf, HEADER_HTML, "Koordinatalar jadvali");   //////////////////////////////////////////////////////////////////////////////////////////////////////////
       server->sendContent(_buf);
       server->sendContent(TABLE_STYLE_SHEET);
       for (int8_t i = -1; i<TABLECOLUMN; i++) {
         server->sendContent("<tr>");
         if (i < 0) {
-          server->sendContent("<td>HQ</td>");
+          server->sendContent("<td>H|Q</td>");
         } else {
           server->sendContent("<td>" + String(i*10) + "</td>");
         }
@@ -339,7 +347,7 @@ void createHeader(char * buf, String value) {
           if (i < 0) {
             server->sendContent("<td>" + String(j) + "</td>");
           } else {
-            server->sendContent("<td><input name='" + String(i*10 + j) + "' type='text' value='" + String(table_values[i*10 + j]) + "'/></td>");
+            server->sendContent("<td><input name='" + String(page + i*10 + j) + "' type='text' value='" + String(table_values[page + i*10 + j]) + "'/></td>");
           }
         }
         server->sendContent("</tr>");
@@ -365,11 +373,12 @@ boolean WebConfig::readConfig(const char * filename){
   if (SPIFFS.exists(CONFTABLE)) {
     File f = SPIFFS.open(CONFTABLE, "r");
     int k = 0, sz = f.size();
-    while (f.position() < sz && k <= MAXVALUESTABLE)
+    while (f.position() < sz && k < MAXVALUESTABLE)
     {
       table_values[k] = f.readStringUntil('\n').toInt();
       k++;
     }
+    f.close();
   } else {
     writeTableConfig(CONFTABLE);
   }
@@ -421,6 +430,7 @@ boolean WebConfig::writeTableConfig(const char* filename) {
     for (int i = 0; i < MAXVALUESTABLE; i++) {
       f.println(table_values[i]);
     }
+    f.close();
     return true;
   }
   else {
@@ -430,7 +440,16 @@ boolean WebConfig::writeTableConfig(const char* filename) {
 
 boolean WebConfig::writeConfig(const char * filename){
   String val;
-  File f = SPIFFS.open(filename, "w");
+  bool table_conf = 0;
+  File f = SPIFFS.open(CONFTABLE, "w");
+  if (f) {
+    for (int i = 0; i < MAXVALUESTABLE; i++) {
+      f.println(table_values[i]);
+    }
+    table_conf = 1;
+  }
+  f.close();
+  f = SPIFFS.open(filename, "w");
   if (f) {
     f.printf("apName=%s\n", _apName.c_str());
     for (uint8_t i = 0; i<_count; i++){
@@ -438,11 +457,11 @@ boolean WebConfig::writeConfig(const char * filename){
       val.replace("\n","~");
       f.printf("%s=%s\n",_description[i].name, val.c_str());
     }
-    writeTableConfig(CONFTABLE);
-    return true;
+    f.close();
+    return true & table_conf;
   } else {
     // Serial.println(F("Cannot write configuration"));
-    return false;
+    return false & table_conf;
   }
 
 }

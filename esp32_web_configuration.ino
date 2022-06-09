@@ -1,7 +1,7 @@
 #include <WebServer.h>
 #include "WebConfig.h"
-#include "SoftwareSerial.h"
-#include "DHT.h"
+#include <SoftwareSerial.h>
+#include <DHT.h>
 
 #define DHTPIN      27
 #define DHTTYPE     DHT11
@@ -156,11 +156,20 @@ void handleRoot () {
   conf.handleFormRequest(&server, 1);
 }
 
-void tableRoot () {
-  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) {
-    return server.requestAuthentication();
-  }
-  conf.handleFormRequest(&server, 3);
+void tableRoot1 () {
+  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) return server.requestAuthentication(); conf.handleFormRequest(&server, 3);
+}
+void tableRoot2 () {
+  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) return server.requestAuthentication(); conf.handleFormRequest(&server, 4);
+}
+void tableRoot3 () {
+  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) return server.requestAuthentication(); conf.handleFormRequest(&server, 5);
+}
+void tableRoot4 () {
+  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) return server.requestAuthentication(); conf.handleFormRequest(&server, 6);
+}
+void tableRoot5 () {
+  if (!server.authenticate(conf.getValue("username"), conf.getValue("password"))) return server.requestAuthentication(); conf.handleFormRequest(&server, 7);
 }
 
 float map(float x, float in_min, float in_max, float out_min, float out_max) {
@@ -218,7 +227,8 @@ void setup() {
   conf.addStatistics("Namlik", "30.00");                              // 5 - index Namlik
   conf.addStatistics("Quvvat", "12.45");                              // 6 - index Quvvat
   conf.addStatistics("ANT Signal", "29");                             // 7 - index ANT
-  conf.addStatistics("Suv sarfi", "0");                               // 8 - index ANT
+  conf.addStatistics("Suv sarfi", "0");                               // 8 - index Suv sarfi
+  conf.addStatistics("Suv tahi", "0");                                // 9 - index Suv sathi
   conf.setDescription(params);
   conf.readConfig();
   fix_length = uint16_t(conf.getInt("fixing"));
@@ -230,7 +240,11 @@ void setup() {
   delay(1000);
   server.on("/config", configRoot);
   server.on("/", HTTP_GET, handleRoot);
-  server.on("/table", tableRoot);
+  server.on("/table1", tableRoot1);
+  server.on("/table2", tableRoot2);
+  server.on("/table3", tableRoot3);
+  server.on("/table4", tableRoot4);
+  server.on("/table5", tableRoot5);
   server.begin(80);
   curtime_http = millis();
   per_hour_time = millis();
@@ -276,6 +290,7 @@ void loop() {
     conf.setStatistics(6, String(volt) + "%");
     conf.setStatistics(7, String(csq) + "dB");
     conf.setStatistics(8, String(water_level));
+    conf.setStatistics(9, String(distance));
     if (next_cmd && !waitHttpAction) {
       queue.addQueue(commands[AT_CSQ], AT_CSQ);
       queue.addQueue(commands[AT_NET_CHK], AT_NET_CHK);
